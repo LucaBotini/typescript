@@ -66,8 +66,7 @@ class Venda {
     listaDeProdutos = []
     valorTotal
 
-    constructor(vendedor) {
-        this.vendedor = vendedor;
+    constructor(vendedor) {        this.vendedor = vendedor;
         this.valorTotal = 0;
     }
 
