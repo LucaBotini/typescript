@@ -19,14 +19,6 @@ class Imovel{
 
     }
 
-
-    
-    RemoverPessoa(valorParaRemover){
-        pessoas = pessoas.filter(elemento => elemento !== valorParaRemover);
-    }
-    AdicionarPessoa(){
-
-    }
 }
 
 const imovel = []
@@ -45,6 +37,13 @@ class Pessoa{
         this.cpf = cpf
         this.dataNascimento = dataNascimento
     }
+
+    RemoverPessoa(valorParaRemover){
+        pessoas = pessoas.filter(elemento => elemento !== valorParaRemover);
+    }
+    AdicionarPessoa(){
+
+    }
 }
 
 class Casa extends Imovel{
@@ -57,6 +56,12 @@ class Casa extends Imovel{
         if(qtdBanheiros > 5){
             throw new Error('Não há disponibilidade para Kitnet com mais que 5 banheiros.')
             }
+
+            if(ComQuintal == true){
+                let resultado = valor * 0.300
+                resultado += valor
+                return console.log(`Valor da casa com quintal (+30%): ${resultado}`) 
+            }
     }
 
 }
@@ -68,7 +73,7 @@ pessoas.push(new Pessoa('Luca', '556.304.898-52', '10/08/2004'))
 pessoas.push(new Pessoa('Vanessa Mozi', '356.304.438-52', '26/12/2005'))
 pessoas.push(new Pessoa('Edvam', '556.304.438-52', '13/09/2001'))
 console.log(pessoas)
-Imovel.RemoverPessoa(1)
+// pessoas.RemoverPessoa(1)
 
 class Apartamento extends Imovel{
     andar
@@ -79,13 +84,19 @@ class Apartamento extends Imovel{
         super(endereco, cep, areaM, qtdBanheiros, qtdQuartos, pessoas, valor)
         this.andar = andar
         this.valorCond = valorCond
+    
+        if(valor > 0){
+        let resultado = valor + valorCond
+        }
 
         if(qtdBanheiros > 3){
             throw new Error('Não há disponibilidade para Kitnet com mais que 3 banheiros.')
-            }
+        }
     }
-    
 }
+
+let apartamento = new Apartamento('endereco', 'cep', 'areaM', 'qtdBanheiros', 'qtdQuartos', 'pessoas', 'valor', 'andar', 'valorCond')
+console.log(apartamento)
 
 class Kitnet extends Imovel{
     
@@ -100,3 +111,8 @@ class Kitnet extends Imovel{
 
 
 }
+
+
+
+
+//RESTA ADICIONAR, REMOVER PESSOAS E AJUSTAR APARTAMENTO QUE NÃO MOSTRA NA CLASSE O VALOR DO APARTAMENTO.
