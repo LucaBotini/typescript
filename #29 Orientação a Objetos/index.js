@@ -7,16 +7,17 @@ class Imovel{
     areaM
     qtdBanheiros
     qtdQuartos
+    pessoas
     valor
-    constructor(endereco, cep, areaM, qtdBanheiros, qtdQuartos, valor){
+    constructor(endereco, cep, areaM, qtdBanheiros, qtdQuartos, pessoas, valor){
 
         this.endereco = endereco
         this.cep = cep
         this.areaM = areaM
         this.qtdBanheiros = qtdBanheiros
         this.qtdQuartos = qtdQuartos
+        this.pessoas = pessoas
         this.valor = valor
-
     }
 
 }
@@ -65,7 +66,7 @@ class Casa extends Imovel{
     }
 
 }
-const casa = new Casa('avenida', '07143-510', '200m2', 5, 2, pessoas, 1200, true) 
+const casa = new Casa('avenida', '07143-510', '200m2', 5, 2, 'pessoas', 1200, true) 
 console.log(casa)
 
 
@@ -87,6 +88,7 @@ class Apartamento extends Imovel{
     
         if(valor > 0){
         let resultado = valor + valorCond
+        console.log(`Valor do condominio + apartamento = ${resultado}`)
         }
 
         if(qtdBanheiros > 3){
@@ -95,7 +97,7 @@ class Apartamento extends Imovel{
     }
 }
 
-let apartamento = new Apartamento('endereco', 'cep', 'areaM', 'qtdBanheiros', 'qtdQuartos', 'pessoas', 'valor', 'andar', 'valorCond')
+let apartamento = new Apartamento('endereco', 'cep', 'areaM', 1, 2, pessoas, 800, 2, 200)
 console.log(apartamento)
 
 class Kitnet extends Imovel{
@@ -115,4 +117,5 @@ class Kitnet extends Imovel{
 
 
 
-//RESTA ADICIONAR, REMOVER PESSOAS E AJUSTAR APARTAMENTO QUE NÃO MOSTRA NA CLASSE O VALOR DO APARTAMENTO.
+//(((((((RESTA ADICIONAR, REMOVER PESSOAS))))))) E AJUSTAR APARTAMENTO QUE NÃO MOSTRA NA CLASSE O VALOR DO APARTAMENTO.
+//****************(((((((((CORREÇÃO NA CONTA DO APARTAMENTO + AMOSTRA DE CLASSE.))))))))) */
