@@ -12,10 +12,12 @@ class Cliente{
     }
 }
 
+
 let cliente = []
 cliente.push(new Cliente('Luca', '556.304.898-52', '10/08/2004'))
 console.log(cliente)
-
+/////////////////////
+let valorabsoluto = 0;
 class PassagemArea{
 
     assento
@@ -31,32 +33,17 @@ class PassagemArea{
         this.valor = valor
         this.passageiro = passageiro
         this.voo = voo
+
+        if(this.primeiraClasse === true){
+            valorabsoluto = this.valor * 1.5
+            return valorabsoluto 
+        }else{
+            valorabsoluto = this.valor
+        }
     }
+
 }
 
-let Areapassagem = []
-Areapassagem.push(new PassagemArea('A1', true, 1500, 'Abner', 828))
-
-class PacoteViagem extends PassagemArea{
-
-    titular
-    passagemIda
-    passagemVolta
-    valorTotal
-
-    constructor(passageiro, passagemIda, passagemVolta, valorTotal){
-
-        super('', false, 0, passageiro, 0)
-        this.titular = passageiro
-        this.passagemIda = passagemIda
-        this.passagemVolta = passagemVolta
-        this.valorTotal = valorTotal
-    }
-}
-
-let pacoteDeViagem = []
-pacoteDeViagem.push(new PacoteViagem(PassagemArea.passageiro, '09/08', '27/12', 10000))
-console.log(pacoteDeViagem)
 
 class Voo{
 
@@ -77,3 +64,39 @@ class Voo{
         this.localDestino = localDestino
     }
 }
+
+let vooo = []
+vooo.push(new Voo('América Rental', 244, '13/09', '15:58', 'Guarulhos', 'Tókio'))
+
+
+class PacoteViagem{
+
+    titular
+    passagemIda
+    passagemVolta
+    valorTotal
+
+    constructor(titular, passagemIda, passagemVolta, valorTotal){
+
+        this.titular = titular
+        this.passagemIda = passagemIda
+        this.passagemVolta = passagemVolta
+        this.valorTotal = valorTotal
+
+    }
+}
+
+let Areapassagem = []
+Areapassagem.push(new PassagemArea('A1', true, 1500, 'Abner', 828))
+console.log(Areapassagem)
+
+const passagem = Areapassagem[0];
+
+
+let pacoteDeViagem = []
+pacoteDeViagem.push(new PacoteViagem(passagem.passageiro, '09/08', '27/12', valorabsoluto))
+console.log(pacoteDeViagem)
+
+
+
+console.log(`Passagem em nome de ${passagem.passageiro}, no assento ${passagem.assento} do voo ${passagem.voo}, com destino para ${vooo.localDestino}!`)
