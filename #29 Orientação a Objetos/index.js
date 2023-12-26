@@ -39,12 +39,6 @@ class Pessoa{
         this.dataNascimento = dataNascimento
     }
 
-    RemoverPessoa(valorParaRemover){
-        pessoas = pessoas.filter(elemento => elemento !== valorParaRemover);
-    }
-    AdicionarPessoa(){
-
-    }
 }
 
 class Casa extends Imovel{
@@ -74,7 +68,13 @@ pessoas.push(new Pessoa('Luca', '556.304.898-52', '10/08/2004'))
 pessoas.push(new Pessoa('Vanessa Mozi', '356.304.438-52', '26/12/2005'))
 pessoas.push(new Pessoa('Edvam', '556.304.438-52', '13/09/2001'))
 console.log(pessoas)
-// pessoas.RemoverPessoa(1)
+
+//método para remover pessoa da casa manualmente.
+// let indice = pessoas.indexOf(0);
+
+// if (indice !== -1) {
+//     pessoas.splice(indice, 1);
+// }
 
 class Apartamento extends Imovel{
     andar
